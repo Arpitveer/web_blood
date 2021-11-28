@@ -1,6 +1,7 @@
 require("dotenv").config()
 const exp = require("express")
 const path = require("path")
+var port= process.env.PORT || 8080;
 const ses = require('express-session')
 const passport = require("passport")
 const db = require("./db.js")
@@ -175,4 +176,4 @@ app.get("/all",checkauth,(req, res) => {
 // app.get("/map/:lat/:log",checkauth ,async (req, res) => {
 //   await axios.get(`https://maps.google.com/maps?q=${req.params.lat},${req.params.log}&hl=es;z=14&amp;output=embed`).then(resp=>{resp.headers["x-frame-options"]="ALLOW-FROM *" ; res.send(resp.data)})
 // })
-app.listen('8080', () => { console.log("server is listening"); })
+app.listen(port, () => { console.log("server is listening"); })
